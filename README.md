@@ -28,7 +28,7 @@ Our review of the dataset provided critical insights into its suitability and qu
 
 **Data Description:** We detailed the dataset's basic features:
 
-_Size:_780 images total (720 for training, 60 for validation). The validation size is small, so metrics need careful interpretation.
+_Size:_ 780 images total (720 for training, 60 for validation). The validation size is small, so metrics need careful interpretation.
 Format: All images are 640x640 pixels, perfect for YOLOv8-seg. Each image has a corresponding label file in YOLOv8-seg format, with class indices and normalized segmentation mask coordinates. This means each image-label pair shows an annotated pothole scene.
 
 _Class:_ The data.yaml defines one class: 'Pothole'. This matches our goal of segmenting only potholes.
