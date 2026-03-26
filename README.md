@@ -1,4 +1,5 @@
-Business Understanding
+**Business Understanding**
+
 Infrastructure deterioration is a major and costly challenge in many developing economies, particularly across African urban centres. Roads are continuously exposed to traffic pressure and environmental conditions, leading to gradual damage such as potholes. If not identified early, these minor defects develop into major failures, increasing repair costs and posing safety risks to road users.
 
 Current maintenance practices are largely manual and reactive, relying on physical inspections or public complaints. This often results in nual inspection methods are labor-intensive, often reactive, and can lead to delayed repairs, increased road hazards, inefficient resource allocation, and increased operational costs. At the same time, deploying extensive monitoring infrastructure, such as fixed cameras across all roads, is not feasible due to financial and logistical constraints.
@@ -15,6 +16,7 @@ Reduced Costs: By identifying and addressing smaller potholes before they escala
 The success of this project will be measured not just by model accuracy metrics, but by its tangible impact on road maintenance efficiency, reduction in road-related incidents, and the ability to inform strategic infrastructure decisions.
 
 **Data Understanding**
+
 Our Data Understanding phase confirmed the dataset was suitable for automated pothole segmentation. This involved a systematic check to ensure the data was fit for fine-tuning our YOLOv8-seg model.
 
 Key Outcomes of Data Understanding:
