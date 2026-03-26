@@ -28,20 +28,20 @@ Our review of the dataset provided critical insights into its suitability and qu
 
 **Data Description:** We detailed the dataset's basic features:
 
-**Size:** 780 images total (720 for training, 60 for validation). The validation size is small, so metrics need careful interpretation.
+_Size:_780 images total (720 for training, 60 for validation). The validation size is small, so metrics need careful interpretation.
 Format: All images are 640x640 pixels, perfect for YOLOv8-seg. Each image has a corresponding label file in YOLOv8-seg format, with class indices and normalized segmentation mask coordinates. This means each image-label pair shows an annotated pothole scene.
 
-**Class:** The data.yaml defines one class: 'Pothole'. This matches our goal of segmenting only potholes.
+_Class:_ The data.yaml defines one class: 'Pothole'. This matches our goal of segmenting only potholes.
 Data Exploration for Suitability: We checked if the data was suitable for pothole segmentation. We confirmed:
 
-**Target Variable:** Segmentation masks for 'Pothole' objects directly support our goal of outlining pothole boundaries.
+_Target Variable:_ Segmentation masks for 'Pothole' objects directly support our goal of outlining pothole boundaries.
 
-**Robustness:** Data augmentation (flipping, cropping, rotating, shearing, brightness/exposure) was used on the training set. This creates diverse examples, making the model more robust to real-world variations.
+_Robustness:_ Data augmentation (flipping, cropping, rotating, shearing, brightness/exposure) was used on the training set. This creates diverse examples, making the model more robust to real-world variations.
 
 **Data Quality:** We checked for completeness, consistency, and accuracy:
 
-**Completeness & Consistency:** All images are 640x640 and paired with label files, indicating no missing parts. The data.yaml correctly links images and labels.
+_Completeness & Consistency:_ All images are 640x640 and paired with label files, indicating no missing parts. The data.yaml correctly links images and labels.
 
-**Real-world Use**: A sample_video.mp4 is included, allowing us to test the model's performance on continuous, real-time data for deployment scenarios.
+_Real-world Use:_ A sample_video.mp4 is included, allowing us to test the model's performance on continuous, real-time data for deployment scenarios.
 
 In summary, this Data Understanding phase confirms the dataset is well-suited, described, structurally sound, and high-quality for fine-tuning the YOLOv8-seg model. This directly supports our business goals for accurate pothole detection and segmentation.
