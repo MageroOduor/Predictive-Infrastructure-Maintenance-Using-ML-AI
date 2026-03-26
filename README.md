@@ -6,7 +6,7 @@ Current maintenance practices are largely manual and reactive, relying on physic
 
 There is therefore a need for a cost-effective and scalable approach that can automatically detect road damage and support timely maintenance decisions. Artificial Intelligence offers a practical solution by enabling models to analyze images and identify defects early. The ultimate goal is to move towards a proactive and data-driven approach to road maintenance.
 
-**Project Outcomes & Decisions Supported:**
+**Expected Outcomes**
 
 By developing and deploying a robust pothole segmentation model, we aim to achieve the following business outcomes and enable critical decisions:
 
@@ -24,7 +24,7 @@ Our Data Understanding phase confirmed the dataset was suitable for automated po
 
 Our review of the dataset provided critical insights into its suitability and quality:
 
-**Data Collection & Source:** The dataset came from Kaggle and was prepared by Roboflow. Knowing its origin helped confirm it represents real-world potholes and is unbiased. We chose this dataset because it's designed for segmentation.
+**Data Source:** The dataset came from Kaggle and was prepared by Roboflow. Knowing its origin helped confirm it represents real-world potholes and is unbiased. We chose this dataset because it's designed for segmentation.
 
 **Data Description:** We detailed the dataset's basic features:
 
