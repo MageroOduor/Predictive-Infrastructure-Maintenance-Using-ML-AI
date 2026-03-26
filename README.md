@@ -1,88 +1,38 @@
-**Predictive Infrastructure Maintenance Using Machine Learning and Artificial Intelligence**
-
-**Problem Statement**
-
+Business Understanding
 Infrastructure deterioration is a major and costly challenge in many developing economies, particularly across African urban centres. Roads are continuously exposed to traffic pressure and environmental conditions, leading to gradual damage such as potholes. If not identified early, these minor defects develop into major failures, increasing repair costs and posing safety risks to road users.
-Current maintenance practices are largely manual and reactive, relying on physical inspections or public complaints. This approach often results in delayed detection, inefficient allocation of resources, and increased operational costs. At the same time, deploying extensive monitoring infrastructure, such as fixed cameras across all roads, is not feasible due to financial and logistical constraints.
-There is therefore a need for a cost-effective and scalable approach that can automatically detect road damage and support timely maintenance decisions. Artificial Intelligence offers a practical solution by enabling models to analyze images and identify defects early.
 
-**Data Source**
+Current maintenance practices are largely manual and reactive, relying on physical inspections or public complaints. This often results in nual inspection methods are labor-intensive, often reactive, and can lead to delayed repairs, increased road hazards, inefficient resource allocation, and increased operational costs. At the same time, deploying extensive monitoring infrastructure, such as fixed cameras across all roads, is not feasible due to financial and logistical constraints.
 
-This project will use the Kaggle Road Damage Dataset, which contains labelled images of potholes. The dataset is suitable for training and evaluating computer vision models due to its diversity. The dataset provides a reliable foundation for model development.
+There is therefore a need for a cost-effective and scalable approach that can automatically detect road damage and support timely maintenance decisions. Artificial Intelligence offers a practical solution by enabling models to analyze images and identify defects early. The ultimate goal is to move towards a proactive and data-driven approach to road maintenance.
 
-For real-world implementation, authorities could collect data using the following approaches:
-a)	Existing traffic cameras to continuously capture road conditions
-b)	Vehicle-mounted cameras, where moving public vehicles such as buses, taxis, and delivery vehicles act as data collectors
-c)	Drone images of critical assets like major highways, bridges, dams and powerlines
-d)	Smartphone-based crowdsourcing, where mobile devices detect road anomalies using sensors
+Project Outcomes & Decisions Supported:
+By developing and deploying a robust pothole segmentation model, we aim to achieve the following business outcomes and enable critical decisions:
 
-In the smartphone approach, accelerometers detect sudden vibrations and vertical movement when a vehicle encounters a pothole. These events can be recorded with GPS coordinates. When multiple users report similar patterns at the same location, the presence of road damage can be confirmed with high confidence.
-This approach ensures that the model can be applied in practice without requiring expensive infrastructure investments.
+Optimized Resource Allocation: The model will provide precise location and severity (area, percentage of damage) of potholes, allowing road authorities to prioritize repairs effectively, leading to more efficient deployment of maintenance crews and budget.
+Proactive Maintenance Planning: Longitudinal data gathered through continuous monitoring will inform data-driven urban planning, enabling predictive maintenance strategies and the design of more resilient road infrastructure.
+Reduced Costs: By identifying and addressing smaller potholes before they escalate into more severe damage, the model can contribute to significant long-term cost savings in road repair.
 
-**Proposed Approach and Modelling Techniques**
-The project will develop an AI approach consisting of two main components: image-based damage detection and predictive analysis.
+The success of this project will be measured not just by model accuracy metrics, but by its tangible impact on road maintenance efficiency, reduction in road-related incidents, and the ability to inform strategic infrastructure decisions.
 
-**Computer Vision for Damage Detection**
-The first part of the project focuses on identifying road damage from images using deep learning.
-The model will be developed using the TensorFlow/Pytorch framework.
-The suggested model is: YOLOv8 (You Only Look Once)
+**Data Understanding**
+Our Data Understanding phase confirmed the dataset was suitable for automated pothole segmentation. This involved a systematic check to ensure the data was fit for fine-tuning our YOLOv8-seg model.
 
-This model is suitable because it:
-a)	Detects objects in images quickly and accurately
-b)	Works well with limited datasets
-c)	Can identify multiple types of damage in one image
+Key Outcomes of Data Understanding:
+Our review of the dataset provided critical insights into its suitability and quality:
 
-The model will:
-a)	Detect potholes
-b)	Highlight damaged areas in images
+Data Collection & Source: The dataset came from Kaggle and was prepared by Roboflow. Knowing its origin helped confirm it represents real-world potholes and is unbiased. We chose this dataset because it's designed for segmentation.
 
-**Supporting tools:**
-a)	Roboflow for image annotations essential for training the YOLOv8 detection model, as it enables the model to learn both what and where the damage is located.
-b)	Keras/ Albumentations for image augmentation
-c)	NumPy for numerical operations
-d)	Pandas for data handling
+Data Description: We detailed the dataset's basic features:
 
-**Predictive Model for Maintenance Decision Support**
-The second part of the project focuses on predicting the likelihood of road deterioration.
-The proposed models are:
-a)	Random Forest
-b)	XGBoost
+Size: 780 images total (720 for training, 60 for validation). The validation size is small, so metrics need careful interpretation.
+Format: All images are 640x640 pixels, perfect for YOLOv8-seg. Each image has a corresponding label file in YOLOv8-seg format, with class indices and normalized segmentation mask coordinates. This means each image-label pair shows an annotated pothole scene.
+Class: The data.yaml defines one class: 'Pothole'. This matches our goal of segmenting only potholes.
+Data Exploration for Suitability: We checked if the data was suitable for pothole segmentation. We confirmed:
 
-These models are chosen because they:
-a)	Perform well on structured data
-b)	Work effectively with small datasets
-c)	Provide interpretable results
+Target Variable: Segmentation masks for 'Pothole' objects directly support our goal of outlining pothole boundaries.
+Robustness: Data augmentation (flipping, cropping, rotating, shearing, brightness/exposure) was used on the training set. This creates diverse examples, making the model more robust to real-world variations.
+Data Quality: We checked for completeness, consistency, and accuracy:
 
-Inputs to the model may include:
-a)	Frequency of detected damage
-b)	Severity of defects
-c)	Location-based indicators
-d)	Simulated sensor data
-The output will be a risk score that helps prioritize maintenance.
-
-**Expected Outcomes**
-The project is expected to deliver the following:
-
-**Outcome:	Description**
-Trained detection model:	Identifies potholes from road images
-Predictive model:	Estimates risk level of road deterioration
-Performance evaluation	Metrics such as accuracy, precision, and recall
-Demonstration	Proof that AI can support infrastructure maintenance decisions
-
-**Future Enhancements**
-While this project focuses on model development and deployment, several enhancements can be explored in future work:
-a)	Development of interactive dashboards for infrastructure monitoring
-b)	Integration with real-time data sources such as IoT sensors
-c)	Extend the model to incorporate time-series data using advanced deep learning techniques such as Long Short-Term Memory (LSTM) to enable the analysis of infrastructure condition trends over time, allowing for more accurate prediction of deterioration patterns and maintenance needs.
-d)	Expansion to other infrastructure such as bridges, railways, airports and power systems and other damages such as cracks. 
-e)	Integration with government databases and smart city platforms
-Conclusion
-This project demonstrates how Artificial Intelligence can be used to address infrastructure maintenance challenges in a practical and scalable way. 
-The use of computer vision for damage detection and machine learning for prediction provides a strong foundation for improving maintenance planning. The project therefore offers real-world relevance, particularly in environments where resources are limited but the need for efficient infrastructure management is high.
-
-**Signoffs:**
-1.	Gloria Melody Muthoni; and
-
-2.	Kennedy Magero Oduor
-
-
+Completeness & Consistency: All images are 640x640 and paired with label files, indicating no missing parts. The data.yaml correctly links images and labels.
+Real-world Use: A sample_video.mp4 is included, allowing us to test the model's performance on continuous, real-time data for deployment scenarios.
+In summary, this Data Understanding phase confirms the dataset is well-suited, described, structurally sound, and high-quality for fine-tuning the YOLOv8-seg model. This directly supports our business goals for accurate pothole detection and segmentation.
